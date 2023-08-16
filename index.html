@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+}
+
+.wrapper{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(57deg ,rgb(9, 0, 51), rgb(14, 3, 29));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero{
+    height: 500px;
+    width: 340px;
+    border-radius: 32px;
+    background: rgba(4, 4, 43, 0.24);
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.hero table {
+    height: 70%;
+    width: 100%;
+}
+#res{
+
+    background: rgb(210, 206, 255);
+    height: 70px;
+    width: 229px;
+    border: 1px solid rgb(114, 16, 211);
+    border-radius: 12px;
+    margin: 3px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    font-size: 26px;
+    overflow-x: auto;
+}
+
+.hero table td button {
+    cursor: pointer;
+    box-shadow: 0px 0px 7px 2px rgba(124, 124, 124, 0.041), 0px 12px 20px 8px rgba(255, 255, 255, 0.041);
+    background: rgb(224, 223, 237);
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    outline: none;
+    font-size: 29px;
+    border-radius: 12px;
+    height: 70px;
+    width: 70px;
+    margin: 3px;
+}
+
+
+
+.head{
+    font-size: 48px;
+    color:rgb(210, 206, 255);
+    margin-bottom: 12px;
+}
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="hero">
+            <h1 class="head" >Calculator</h1>
+            <table>
+                <tbody>
+                <tr>
+                    <td colspan="3"><div class="res" id="res"></div></td>
+                    <td><button onclick="main('erase')">C</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="main('1')">1</button></td>
+                    <td><button onclick="main('2')">2</button></td>
+                    <td><button onclick="main('3')">3</button></td>
+                    <td><button onclick="main('/')">/</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="main('4')">4</button></td>
+                    <td><button onclick="main('5')">5</button></td>
+                    <td><button onclick="main('6')">6</button></td>
+                    <td><button onclick="main('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="main('7')">7</button></td>
+                    <td><button onclick="main('8')">8</button></td>
+                    <td><button onclick="main('9')">9</button></td>
+                    <td><button onclick="main('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="main('.')">.</button></td>
+                    <td><button onclick="main('0')">0</button></td>
+                    <td><button onclick="main('enter')" >=</button></td>
+                    <td><button onclick="main('*')">*</button></td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        const res = document.getElementById("res");
+function main(dat){
+    if (dat == "erase"){
+        res.innerText = ""
+    }
+    else if (dat == "enter"){
+        res.innerText = eval(res.innerText);
+    }
+    else{
+        res.innerText = res.innerText + dat;
+    }
+}
+    </script>
+</body>
+</html>
